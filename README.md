@@ -10,7 +10,7 @@ Requirement:
 
 Compiling mc:
 
-    # Compile the compiler.
+    # Compile the mc compiler.
     $ make
 
 Usage:
