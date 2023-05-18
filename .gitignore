@@ -1,0 +1,11 @@
+hello
+
+out
+a.out
+out.s
+*.o
+
+build/
+
+.gdb_history
+TAGS
