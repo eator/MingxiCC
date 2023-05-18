@@ -39,7 +39,7 @@ Use gdb to debug the compiled and linked program.
 ## Code Quality
 
 The make command may generate warnings or errors, fix them. 
-You can also run `make` with `Clang Static Analyzer toolset` to catch further issues, e.g.:
+You can also run `make` with `Clang Static Analyzer toolset` to catch further issues, e.g.
 
     $ scan-build make
 
