@@ -8,4 +8,5 @@ out.s
 build/
 
 .gdb_history
+.expanded.c
 TAGS
