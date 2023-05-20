@@ -1,6 +1,6 @@
 # MingxiCC(mc)
 
-A very small C-like(subset-C) compiler. Written in C, compiling mc source file to x86 assembly.
+A very small C-like(subset-C) compiler. Written in C/C++, compiling c source file to x86 assembly.
 
 ## Usage
 
@@ -16,17 +16,18 @@ Compiling mc:
 Usage:
 
     # Run mc, producing an assembly file.
-    $ ./build/mc test_src/mytest__ret12.c
+    $ cd build
+    $ ./mc ../test_src/mytest__ret12.c
     # Use the GNU toolchain to assemble and link.
-    $ ./tool/link
+    $ ../tool/link
 
 Viewing the code after preprocessing:
 
-    $ ./build/mc --dump-expansion test_src/mytest__ret12.c
+    $ ./mc --dump-expansion ../test_src/mytest__ret12.c
 
 Viewing the AST:
 
-    $ ./build/mc --dump-ast test_src/mytest__ret12.c
+    $ ./mc --dump-ast ../test_src/mytest__ret12.c
 
 Running tests:
 
