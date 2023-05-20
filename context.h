@@ -1,16 +1,22 @@
-#ifndef MC_CONTEXT_H
-#define MC_CONTEXT_H
+#pragma once
 
 #include "env.h"
 
-typedef struct Context {
+const int WORD_SIZE = 4;
+
+class Context {
+  public:
     int stack_offset;
     Environment *env;
     int label_count;
-} Context;
 
-Context *new_context();
-void context_free(Context *ctx);
-void new_scope(Context *ctx);
+  public:
+    Context() : stack_offset(0), env(NULL), label_count(0) {}
 
-#endif
+    Environment *GetEnv() { return env; }
+    void new_scope() {
+        free(env);
+        env = new Environment();
+        stack_offset = -1 * WORD_SIZE;
+    }
+};

@@ -1,27 +1,34 @@
-#ifndef MC_ENV_H
-#define MC_ENV_H
+#pragma once
 
-#include <stdlib.h>
+#include <iostream>
+#include <string>
+#include <vector>
 
-typedef struct VarWithOffset {
-    char *var_name;
+using namespace std;
+
+struct VarWithOffset {
+    string var_name;
     int offset;
-} VarWithOffset;
+};
 
-/******************************************************************************
- *
- * A data structure that maps variable names (i.e. strings) to offsets
- * (integers) in the current stack frame.
- *
- ******************************************************************************/
-typedef struct Environment {
-    size_t size;
-    VarWithOffset *items;
-} Environment;
+// Map variable names(i.e. strings) to offsets(integers)
+// in the Env(current stack frame).
+class Environment {
+  private:
+    vector<VarWithOffset> items;
 
-Environment *environment_new();
-int environment_get_offset(Environment *env, char *var_name);
-void environment_set_offset(Environment *env, char *var_name, int offset);
-void environment_free(Environment *env);
+  public:
+    void set_offset(const string &var_name, int offset) {
+        VarWithOffset vwo = {var_name, offset};
+        items.push_back(vwo);
+    }
 
-#endif
+    int get_offset(const string &var_name) {
+        for (auto &i : items)
+            if (i.var_name == var_name)
+                return i.offset;
+
+        cerr << "Could not find [" << var_name << "] in environment" << endl;
+        return -1;
+    }
+};

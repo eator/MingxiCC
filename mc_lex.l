@@ -3,11 +3,11 @@ L			[a-zA-Z_]
 
 %{
 #define YYSTYPE char*
-#include "y.tab.h"
+#include "y.tab.hpp"
+#include <iostream>
 
 void comment();
-
-void yyerror();
+void yyerror(const char*);
 %}
 
 
@@ -48,11 +48,16 @@ void yyerror();
 
 #define INPUT_EOF 0
 
+int yywrap(void)
+{
+	return 1;
+}
+
 void comment(void) {
     /* Consume characters up to the closing comment marker. */
     char c, prev = 0;
   
-    while ((c = input()) != INPUT_EOF) {
+    while ((c = std::cin.get()) != INPUT_EOF) {
         if (c == '/' && prev == '*')
             return;
         prev = c;
