@@ -374,7 +374,7 @@ class WhileStatement : public Syntax {
 };
 
 class ReturnStatement : public Syntax {
-  private:
+  public:
     Syntax *expression;
 
   public:

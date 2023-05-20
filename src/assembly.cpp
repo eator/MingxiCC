@@ -192,16 +192,16 @@ void CodeGenor::write_syntax(Syntax *syntax, Context *ctx) {
         }
 
     } else if (syntax->GetType() == SyntaxType::ASSIGNMENT) {
-        write_syntax(syntax, ctx);
-
         Assignment *assign = dynamic_cast<Assignment *>(syntax);
+        write_syntax(assign->expression, ctx);
+
         emit_inst_format("mov", "%%eax, %d(%%ebp)",
                          ctx->env->get_offset(assign->var_name));
 
     } else if (syntax->GetType() == SyntaxType::RETURN_STATEMENT) {
         ReturnStatement *return_statement =
             dynamic_cast<ReturnStatement *>(syntax);
-        write_syntax(return_statement, ctx);
+        write_syntax(return_statement->expression, ctx);
 
         emit_return();
 

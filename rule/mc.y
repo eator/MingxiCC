@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <stack>
-#include "../syntax.h"
+#include "../src/syntax.h"
 
 #define YYSTYPE char*
 
@@ -160,7 +160,7 @@ statement
       {
           Syntax *current_syntax = syntax_stack.top();
           syntax_stack.pop();
-          ReturnStatement* return_statement = dynamic_cast<ReturnStatement*>(current_syntax);
+          ReturnStatement* return_statement = new ReturnStatement(current_syntax);
           syntax_stack.push(return_statement);
       }
 

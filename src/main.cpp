@@ -11,7 +11,7 @@
 #include "assembly.h"
 #include "context.h"
 #include "env.h"
-#include "build/y.tab.hpp"
+#include "../build/y.tab.hpp"
 
 using namespace std;
 
