@@ -7,7 +7,7 @@
 要求：
 
     需要先安装 `flex`, `bison`, `clang` and `clang-tools` 
-    确保命令行工具 `yacc` 链接到 `bison`, `flex` 链接到 `lex`
+    确保命令行工具 `yacc` 链接到 `bison`, `lex` 链接到 `flex`
 
 编译 mc：
 
