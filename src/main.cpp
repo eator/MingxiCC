@@ -80,6 +80,7 @@ int main(int argc, char *argv[]) {
 
     int result;
 
+    // NOTE: here use a preprocessor by gcc
     // TODO: create a proper temporary file from the preprocessor.
     char command[1024] = {0};
     snprintf(command, 1024, "gcc -E %s > .expanded.c", file_name);
@@ -143,8 +144,8 @@ int main(int argc, char *argv[]) {
 
         cout << "Written out.s.\n";
         cout << "Build it with:\n";
-        cout << "    $ as out.s -o out.o\n";
-        cout << "    $ ld -s -o out out.o\n";
+        cout << "    $ as --32 -g -o out.o out.s\n";
+        cout << "    $ ld -m elf_i386 -o out out.o\n";
     }
 
     return result;
