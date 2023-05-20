@@ -1,4 +1,5 @@
 # MingxiCC(mc)
+[Chinese README](./README_CN.md)
 
 A very small C-like(subset-C) compiler. Written in C/C++, compiling c source file to x86 assembly.
 
