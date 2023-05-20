@@ -8,6 +8,7 @@ A very small C-like(subset-C) compiler. Written in C/C++, compiling c source fil
 Requirement: 
 
     Need `flex`, `bison`, `clang` and `clang-tools` installed.
+    Make sure you link the command `yacc` with `bison` and `flex` with `lex`.
 
 Compiling mc:
 
